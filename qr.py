@@ -110,7 +110,9 @@ def QR_decomposition(A):
 
 
 def OLS_from_QR(R, b):
-    w = np.linalg.solve(a=R, b=b)
+    p = R.shape[1] # p = number of parameters including intercept
+    # Solve: R * w = b
+    w = np.linalg.solve(a=R[0:p+1], b=b[0:p+1])
     return w
 
 
