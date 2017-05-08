@@ -122,24 +122,36 @@ def QR_decomposition2(old_Q, old_R, A2):
     :param A2: New additional rows to original matrix A1
     :return: QR decompositioin of matrix A = concatenated A1 with A2 using precalculated Q, R from A1
     """
-    A1 = replace_elems_close_to_zero(old_Q.T * old_R)  # original matrix A1
 
-    if A1.shape[1] != A2.shape[1]:
-        print('Provided matrix has different number of columns ({}) than the original one ({}).\n'
-              'Returning...'.format(A2.shape[1], A1.shape[1]))
-        return None
+    if old_Q==None or old_R==None:
+        print('QR decomposition for matrix A from scratch: \n', A2)
+        QT = np.matrix(np.identity(A2.shape[0]))
+        R = np.matrix(A2)
+    else:
+        print('QR decomposition of matrix with added rows: \n')
+        A1 = replace_elems_close_to_zero(old_Q.T * old_R)  # original matrix A1
 
-    A = np.concatenate((A1, A2), axis=0)  # Add all rows from A2 to A1 = create whole matrix A
-    QT = np.matrix(np.identity(A.shape[0]))
+        if A1.shape[1] != A2.shape[1]:
+            print('Provided matrix has different number of columns ({}) than the original one ({}).\n'
+                  'Returning...'.format(A2.shape[1], A1.shape[1]))
+            return None
 
-    for i in range(old_Q.shape[0]):
-        for j in range(old_Q.shape[1]):
-            QT[i, j] = old_Q.T[i, j]
+        A = np.concatenate((A1, A2), axis=0)  # Add all rows from A2 to A1 = create whole matrix A
+        QT = np.matrix(np.identity(A.shape[0]))
+
+        for i in range(old_Q.shape[0]):
+            for j in range(old_Q.shape[1]):
+                QT[i, j] = old_Q.T[i, j]
 
 
-    # R = replace_elems_close_to_zero(QT.T * A) # equal to: np.concatenate((old_R, A2), axis=0)
-    R = np.concatenate((old_R, A2), axis=0)
-    print('Q*A = R:\n', R)
+        # R = replace_elems_close_to_zero(QT.T * A) # equal to: np.concatenate((old_R, A2), axis=0)
+        R = np.concatenate((old_R, A2), axis=0)
+        print('Full matrix with added rows:\n', A)
+        print('precalculated Q:\n', old_Q)
+        print('precalculated R:\n', old_R)
+        print('prepared Q from precalculated old_Q:\n', QT.T)
+        print('prepared R = Q*A from prepared Q and full A:\n', R)
+
     for i in range(A.shape[0]):
         for j in range(A.shape[1]):
             if j >= i:
