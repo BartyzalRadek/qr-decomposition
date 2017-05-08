@@ -1,8 +1,10 @@
 import numpy as np
 
+np.set_printoptions(precision=5)
 
 def replace_elems_close_to_zero(A):
-    EPSILON = 0.000000001
+    EPSILON = 0.000001
+    A = A.round(3)
     A[np.abs(A) < EPSILON] = 0
     return A
 

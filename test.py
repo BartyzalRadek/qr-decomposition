@@ -16,9 +16,8 @@ A3 = np.matrix([[6, 5, 0],
                 [5, 1, 4],
                 [3, 2, 1],
                 [0, 4, 3]], dtype=float)
-A4 = np.matrix([[6, 5, 0],
-                [0, 4, 3]], dtype=float)
-np.savetxt("A.csv", A, delimiter=",", fmt='%.5f')
+A4 = np.matrix([[6, 5, 0, 1],
+                [0, 4, 3, 2]], dtype=float)
 
 # G1 = get_rotation_matrix(A, [1, 0])
 # print('G1 for [1,0]:\n', G1)
@@ -38,14 +37,14 @@ np.savetxt("A.csv", A, delimiter=",", fmt='%.5f')
 #
 # print('Q * A = R\nA = Q.T * R\n', QT * R)
 
-print('*****************')
-Q, R = QR_decomposition(old_Q=None, old_R=None, A2=A)
-print('*****************')
-Q2, R2 = QR_decomposition(old_Q=Q, old_R=R, A2=A4)
-print('*****************')
+# print('*****************')
+# Q, R = QR_decomposition(old_Q=None, old_R=None, A2=A)
+# print('*****************')
+# Q2, R2 = QR_decomposition(old_Q=Q, old_R=R, A2=A4)
+# print('*****************')
 np.set_printoptions(precision=5)
-np.savetxt("A.csv", A, delimiter=",", fmt='%.5f')
+np.savetxt("A4.csv", A4, delimiter=",", fmt='%.5f')
 
-my_data = np.matrix(genfromtxt('A.csv', delimiter=','))
+my_data = np.matrix(genfromtxt('A4.csv', delimiter=','))
 print('Data\n', my_data)
 
