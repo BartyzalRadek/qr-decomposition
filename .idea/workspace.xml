@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf5fa31-e8d1-4038-9422-8ed6b97eeb8b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/qr.py" afterPath="$PROJECT_DIR$/qr_core.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/R2.csv" afterPath="$PROJECT_DIR$/R2.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qr_core.py" afterPath="$PROJECT_DIR$/qr_core.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,13 +19,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="qr_core.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="qr_core.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qr_core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-673">
-              <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
+            <state relative-caret-position="264">
+              <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
               <folding>
-                <element signature="e#174#988#0" expanded="false" />
+                <element signature="e#281#1095#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="49" />
+            <state relative-caret-position="405">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="32" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qr_solver.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="qr_solver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qr_solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+            <state relative-caret-position="361">
+              <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -81,10 +81,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/qr.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/util.py" />
-        <option value="$PROJECT_DIR$/qr_core.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/qr_solver.py" />
+        <option value="$PROJECT_DIR$/qr_core.py" />
       </list>
     </option>
   </component>
@@ -385,7 +385,21 @@
       <option name="project" value="LOCAL" />
       <updated>1494258241733</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added solver with arguments specifying input data location.">
+      <created>1494263654955</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1494263654955</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added rounding, OLS not working correctly.">
+      <created>1494266390877</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1494266390877</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -422,7 +436,9 @@
     <MESSAGE value="Tidied up." />
     <MESSAGE value="Fixed OLS solution" />
     <MESSAGE value="Added test file, refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test file, refactoring" />
+    <MESSAGE value="Added solver with arguments specifying input data location." />
+    <MESSAGE value="Added rounding, OLS not working correctly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rounding, OLS not working correctly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -439,20 +455,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qr_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-673">
-          <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
-          <folding>
-            <element signature="e#174#988#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="49" />
+        <state relative-caret-position="405">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="32" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -461,10 +467,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qr_solver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+        <state relative-caret-position="361">
+          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qr_core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+          <folding>
+            <element signature="e#281#1095#0" expanded="false" />
           </folding>
         </state>
       </provider>

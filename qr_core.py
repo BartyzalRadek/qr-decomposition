@@ -2,10 +2,11 @@ import numpy as np
 
 np.set_printoptions(precision=5)
 
-def replace_elems_close_to_zero(A):
-    EPSILON = 0.000001
-    A = A.round(3)
-    A[np.abs(A) < EPSILON] = 0
+DECIMALS = 5
+def replace_elems_close_to_zero(A, decimals):
+    EPSILON = 1.0/(10**decimals)
+    # A = A.round(decimals)
+    A[np.abs(A.round(decimals)) < EPSILON] = 0
     return A
 
 
@@ -57,22 +58,27 @@ def run_decomposition(R, QT, A):
                 G = get_rotation_matrix(R, [i, j])
                 # print('G to zero elem at {} = \n{}'.format([i,j], G))
                 R = G * R
-                replace_elems_close_to_zero(R)
+                replace_elems_close_to_zero(R, DECIMALS+3)
                 # print('G*R = \n', R)
                 QT = QT * G.T
                 # print('QT*G.T = \n', QT)
 
-    replace_elems_close_to_zero(QT)
+    replace_elems_close_to_zero(QT, DECIMALS+3)
+    replace_elems_close_to_zero(R, DECIMALS)
     Q = QT.T
-    print('Q: \n{}\nR: \n{} \nQ * A = R\nA = Q.T * R = \n{}'.format(Q, R, replace_elems_close_to_zero(QT * R)))
+    print('Q: \n{}\nR: \n{} \nQ * A = R\nA = Q.T * R = \n{}'.format(Q, R, replace_elems_close_to_zero(QT * R, 3)))
 
-    return Q, R
+    return Q, replace_elems_close_to_zero(R, DECIMALS)
 
 
 def OLS_from_QR(R, b):
-    p = R.shape[1]  # p = number of parameters including intercept
-    # Solve: R * w = b
-    w = np.linalg.solve(a=R[0:p + 1], b=b[0:p + 1])
+    # print('OLS input: R:\n', R, '\nb=\n', b)
+    if R.shape[0] > R.shape[1]:
+        p = R.shape[1]  # p = number of parameters including intercept
+        w = np.linalg.solve(a=R[0:p], b=b[0:p])
+    else:
+        # Solve: R * w = b
+        w = np.linalg.solve(a=R, b=b)
     return w
 
 
@@ -92,7 +98,7 @@ def QR_decomposition(old_Q, old_R, A2):
         R = np.matrix(A)
     else:
         print('QR decomposition of matrix with added rows: \n')
-        A1 = replace_elems_close_to_zero(old_Q.T * old_R)  # original matrix A1
+        A1 = replace_elems_close_to_zero(old_Q.T * old_R, DECIMALS)  # original matrix A1
 
         if A1.shape[1] != A2.shape[1]:
             print('Provided matrix has different number of columns ({}) than the original one ({}).\n'
