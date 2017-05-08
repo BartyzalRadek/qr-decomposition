@@ -1,6 +1,4 @@
 import numpy as np
-import pandas as pd
-import argparse
 
 
 def replace_elems_close_to_zero(A):
@@ -65,6 +63,7 @@ def run_decomposition(R, QT, A):
     replace_elems_close_to_zero(QT)
     Q = QT.T
     print('Q: \n{}\nR: \n{} \nQ * A = R\nA = Q.T * R = \n{}'.format(Q, R, replace_elems_close_to_zero(QT * R)))
+
     return Q, R
 
 
