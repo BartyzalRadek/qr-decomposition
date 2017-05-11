@@ -27,16 +27,9 @@ def get_rotation_matrix(A, pos_to_zero):
     # |beta  alpha| |b| = |0|
     a = A[j, j]
     b = A[i, j]
-    alpha = 0
-    beta = 0
-    if (np.abs(b) >= np.abs(a)):
-        t = -a / b
-        beta = 1 / np.sqrt(1 + t * t)
-        alpha = beta * t
-    else:
-        t = -b / a
-        alpha = 1 / np.sqrt(1 + t * t)
-        beta = alpha * t
+    bottom = np.sqrt(a*a + b*b)
+    alpha = a / bottom
+    beta = -b / bottom
 
     G[i, i] = alpha
     G[j, j] = alpha
